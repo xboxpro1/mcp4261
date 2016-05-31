@@ -15,6 +15,10 @@ const static uint8_t INC_W0  = B00000100;
 const static uint8_t INC_W1  = B00010100;
 const static uint8_t DEC_W0  = B00001000;
 const static uint8_t DEC_W1  = B00011000;
+const static uint8_t W0ON_W1ON  = B01110111;
+const static uint8_t W0OFF_W1OFF  = B00000000;
+const static uint8_t W0ON_W1OFF  = B00000111;
+const static uint8_t W0OFF_W1ON  = B01110000;
 
 const static uint8_t TCON_READ  =  B01001100;
 const static uint8_t TCON_WRITE  = B01000000;

@@ -34,7 +34,7 @@ class MCP4261{
 
 public:
 
-MCP4261(int chipSelect, int potE, int nvP);
+MCP4261(int chipSelect, int potE, int proNV);
 int  getW0Pos();
 int  getW0NVPos();
 int  getW1Pos();
@@ -43,8 +43,9 @@ void setW0Pos(uint16_t pos);
 void setW0NVPos(uint16_t pos);
 void setW1Pos(uint16_t pos);
 void setW1NVPos(uint16_t pos);
-void MCP4261::wiperOn(boolean w0_on, boolean w1_on);
 void MCP4261::potEnable(int enp);
+void MCP4261::nvProtect(int nvp);
+void MCP4261::wiperOn(boolean w0_on, boolean w1_on);
 
 uint16_t readTcon();
 void writeTcon(uint16_t tcon);

@@ -17,6 +17,7 @@ void MCP4261::write(byte cmd_byte, byte data_byte)
   digitalWrite(cs, LOW);  
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(data_byte);
+  delay(5);
   digitalWrite(cs, HIGH);
   bool result = ~low_byte;
 }
@@ -42,9 +43,20 @@ int  MCP4261::getW0Pos(){
  return pos;
 }
 
+int  MCP4261::getW0NVPos(){
+ int pos =   0x01FF &  read(READ_W0NV);
+ return pos;
+}
+
 
 int  MCP4261::getW1Pos(){
  int pos =   0x01FF &  read(READ_W1);
+ return pos;
+}
+
+
+int  MCP4261::getW1NVPos(){
+ int pos =   0x01FF &  read(READ_W1NV);
  return pos;
 }
 
@@ -54,12 +66,18 @@ void MCP4261::setW0Pos(uint16_t pos){
       write(WRITE_W0, pos);
 }
 
+void MCP4261::setW0NVPos(uint16_t pos){
+      write(WRITE_W0NV, pos);
+}
+
 
 void MCP4261::setW1Pos(uint16_t pos){
       write(WRITE_W1, pos);
 }
 
-
+void MCP4261::setW1NVPos(uint16_t pos){
+      write(WRITE_W1NV, pos);
+}
 
 
 uint16_t MCP4261::readTcon(){
@@ -67,16 +85,6 @@ uint16_t MCP4261::readTcon(){
 }
 void MCP4261::writeTcon(uint16_t tcon){
     write(TCON_WRITE,tcon);
-}
-
-
-
-
-void MCP4261::mute(boolean mute){
-    if(mute)
-      writeTcon(B11011101);
-    else 
-      writeTcon(B11111111);
 }
 
 void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
@@ -110,34 +118,3 @@ void  MCP4261::decW0(){
 void  MCP4261::decW1(){
    write(DEC_W1, 0);
 }
-
-
- 
-void  MCP4261::saveW0Pos(int num){
-     if(num > 9) num =9;
-     uint16_t  d = read(READ_W0);
-     write(EEPROM_W[num], d);
-     delay(10);
- }
- 
-void  MCP4261::saveW1Pos(int num){
-     if(num > 9) num =9;
-     uint16_t  d = read(READ_W1);
-     write(EEPROM_W[num], d);
-     delay(10);
- }
-
-
-
-
-void  MCP4261::restoreW0Pos(int num){
-     if(num > 9) num =9;
-     uint16_t  d = read(EEPROM_R[num]);
-     write(WRITE_W0, d);
- }
-
-void  MCP4261::restoreW1Pos(int num){
-     if(num > 9) num =9;
-     uint16_t  d = read(EEPROM_R[num]);
-     write(WRITE_W1, d);
- }

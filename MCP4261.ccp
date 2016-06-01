@@ -8,10 +8,6 @@ MCP4261::MCP4261(int chipSelect){
   cs = chipSelect;
   pinMode(cs, OUTPUT); 
   digitalWrite(cs, HIGH); 
-  getW0Pos();
-  getW1Pos();
- restoreW0Pos(9);
- restoreW1Pos(9);
 }
 
 
@@ -83,6 +79,20 @@ void MCP4261::mute(boolean mute){
       writeTcon(B11111111);
 }
 
+void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
+byte w0on;
+byte won;
+if(w0_on)
+    w0on = B1111;
+else
+    w0on = B1000;
+if(W1_on)
+    won = w0on + B11110000;
+else
+    won = w0on + B1000000;
+
+writeTcon(won);
+}
 
 
 void  MCP4261::incW0(){

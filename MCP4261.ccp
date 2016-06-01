@@ -2,12 +2,18 @@
 
 
 
-MCP4261::MCP4261(int chipSelect){
+MCP4261::MCP4261(int chipSelect, int potE, int nvP){
   SPI.begin(); 
   SPI.setBitOrder(MSBFIRST);
   cs = chipSelect;
+  pe = potE;
+  nv = nvP;
   pinMode(cs, OUTPUT); 
   digitalWrite(cs, HIGH); 
+  pinMode(pe, OUTPUT); 
+  digitalWrite(pe, HIGH);
+  pinMode(nv, OUTPUT); 
+  digitalWrite(nv, HIGH);
 }
 
 
@@ -77,6 +83,10 @@ void MCP4261::setW1Pos(uint16_t pos){
 
 void MCP4261::setW1NVPos(uint16_t pos){
       write(WRITE_W1NV, pos);
+}
+
+void MCP4261::potEnable(int enp){
+      digitalWrite(pe, enp);
 }
 
 

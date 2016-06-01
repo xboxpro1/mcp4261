@@ -75,11 +75,19 @@ void loop()
    }
    
    if(incomingByte == 'a'){
-    poti.potEnable(on, off);
+    poti.wiperOn(on, off);
    }
    
    if(incomingByte == 'b'){
-    poti.potEnable(off, on);
+    poti.wiperOn(off, on);
+   }
+   
+   if(incomingByte == 'c'){
+    poti.wiperOn(on, on);
+   }
+   
+   if(incomingByte == 'd'){
+    poti.wiperOn(off, off);
    }
    
  }

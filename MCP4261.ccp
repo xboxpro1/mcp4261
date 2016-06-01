@@ -3,8 +3,6 @@
 
 
 MCP4261::MCP4261(int chipSelect, int potE, int proNV){
-  SPI.begin(); 
-  SPI.setBitOrder(MSBFIRST);
   cs = chipSelect;
   pe = potE;
   nv = proNV;
@@ -20,20 +18,24 @@ MCP4261::MCP4261(int chipSelect, int potE, int proNV){
 
 void MCP4261::write(byte cmd_byte, byte data_byte)
 {
+  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
   digitalWrite(cs, LOW);  
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(data_byte);
   delay(5);
   digitalWrite(cs, HIGH);
+  SPI.endTransaction();
   bool result = ~low_byte;
 }
 
 uint16_t MCP4261::read(byte cmd_byte)
 {
+  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
   digitalWrite(cs, LOW); 
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(0xFF);
   digitalWrite(cs, HIGH);
+  SPI.endTransaction();
   return byte2uint16(high_byte, low_byte);
 }
 

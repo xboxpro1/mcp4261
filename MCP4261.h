@@ -34,7 +34,7 @@ class MCP4261{
 
 public:
 
-MCP4261(int cs);
+MCP4261(int chipSelect, int potEnable, int nvProtect);
 int  getW0Pos();
 int  getW0NVPos();
 int  getW1Pos();
@@ -55,7 +55,8 @@ void write(byte cmd_byte, byte data_byte);
 uint16_t read(byte cmd_byte);
 uint16_t byte2uint16(byte high_byte, byte low_byte);
 int cs; 
-
+int pe;
+int nv;
 
 };
 

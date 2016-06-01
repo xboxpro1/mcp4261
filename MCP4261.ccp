@@ -89,6 +89,10 @@ void MCP4261::potEnable(int enp){
       digitalWrite(pe, enp);
 }
 
+void MCP4261::nvProtect(int nvp){
+      digitalWrite(nv, nvp);
+}
+
 
 uint16_t MCP4261::readTcon(){
   return  read(TCON_READ);
@@ -112,19 +116,3 @@ else
 writeTcon(won);
 }
 
-
-void  MCP4261::incW0(){
-   write(INC_W0, 0);
-}
-
-void  MCP4261::incW1(){
-   write(INC_W1, 0);
-}
-
-void  MCP4261::decW0(){
-   write(DEC_W0, 0);
-}
-
-void  MCP4261::decW1(){
-   write(DEC_W1, 0);
-}

@@ -45,12 +45,14 @@ void setW0Pos(uint16_t pos);
 void setW0NVPos(uint16_t pos);
 void setW1Pos(uint16_t pos);
 void setW1NVPos(uint16_t pos);
-void MCP4261::potEnable(int enp);
-void MCP4261::nvProtect(int nvp);
-void MCP4261::wiperOn(boolean w0_on, boolean w1_on);
+void potEnable(int enp);
+void nvProtect(int nvp);
+void wiperOn(boolean w0_on, boolean w1_on);
 
 uint16_t readTcon();
 void writeTcon(uint16_t tcon);
+
+uint16_t readStatus();
 
 
 private:

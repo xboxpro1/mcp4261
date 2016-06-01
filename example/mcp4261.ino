@@ -90,7 +90,13 @@ void loop()
        Serial.print("TCON: ");        
        Serial.println(tcon,BIN);     
    }
-
+   
+   if(incomingByte == 's'){
+      uint16_t stat = poti.readStatus();
+       Serial.print("Status: ");        
+       Serial.println(stat,BIN);     
+   }
+   
    if(incomingByte == 'e'){
     poti.potEnable(on);
    }

@@ -66,8 +66,22 @@ void loop()
        Serial.println(tcon,BIN);     
    }
 
-  
-
+   if(incomingByte == 'e'){
+    poti.potEnable(on);
+   }
+   
+   if(incomingByte == 'x'){
+    poti.potEnable(off);
+   }
+   
+   if(incomingByte == 'a'){
+    poti.potEnable(on, off);
+   }
+   
+   if(incomingByte == 'b'){
+    poti.potEnable(off, on);
+   }
+   
  }
 
 }

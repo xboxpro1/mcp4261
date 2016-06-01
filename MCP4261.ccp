@@ -2,12 +2,12 @@
 
 
 
-MCP4261::MCP4261(int chipSelect, int potE, int nvP){
+MCP4261::MCP4261(int chipSelect, int potE, int proNV){
   SPI.begin(); 
   SPI.setBitOrder(MSBFIRST);
   cs = chipSelect;
   pe = potE;
-  nv = nvP;
+  nv = proNV;
   pinMode(cs, OUTPUT); 
   digitalWrite(cs, HIGH); 
   pinMode(pe, OUTPUT); 

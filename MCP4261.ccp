@@ -97,8 +97,13 @@ void MCP4261::nvProtect(int nvp){
 uint16_t MCP4261::readTcon(){
   return  read(TCON_READ);
 }
+
 void MCP4261::writeTcon(uint16_t tcon){
     write(TCON_WRITE,tcon);
+}
+
+uint16_t MCP4261::readStatus(){
+  return  read(STATUS_READ);
 }
 
 void MCP4261::wiperOn(boolean w0_on, boolean w1_on){

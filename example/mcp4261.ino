@@ -6,9 +6,9 @@
 
 const int sd_poti = 9;                                   // SHDN Poti
 const int cs_poti = 10;                                  // CS Poti
-const int rw_poti = 11;                                  // WP Poti
+const int wp_poti = 11;                                  // WP Poti
 
-MCP4261 poti = MCP4261(cs_poti, sd_poti, rw_poti);
+MCP4261 poti = MCP4261(cs_poti, sd_poti, wp_poti);
 
 int incomingByte = 0; 
 

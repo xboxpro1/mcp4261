@@ -105,13 +105,13 @@ void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
 byte w0on;
 byte won;
 if(w0_on)
-    w0on = B1111;
+    w0on = B0111;
 else
-    w0on = B1000;
+    w0on = B0000;
 if(W1_on)
-    won = w0on + B11110000;
+    won = w0on + B01110000;
 else
-    won = w0on + B1000000;
+    won = w0on + B0000000;
 
 writeTcon(won);
 }

@@ -19,6 +19,8 @@ const static uint8_t READ_W1NV  = B00111100;
 const static uint8_t TCON_READ  =  B01001100;
 const static uint8_t TCON_WRITE  = B01000000;
 
+const static uint8_t STATUS_READ  =  B01011100;
+
 
  const static uint8_t WP_DIS = B11110100;
  const static uint8_t WP_EN =  B11111000;

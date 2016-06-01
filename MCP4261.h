@@ -9,8 +9,12 @@
 
 const static uint8_t WRITE_W0  = B00000000;
 const static uint8_t WRITE_W1  = B00010000;
-const static uint8_t READ_W0  = B00001100;  
-const static uint8_t READ_W1  = B00011100;    
+const static uint8_t READ_W0  = B00001100;
+const static uint8_t READ_W1  = B00011100; 
+const static uint8_t WRITE_W0NV  = B00100000;
+const static uint8_t WRITE_W1NV  = B00110000;
+const static uint8_t READ_W0NV  = B00101100;
+const static uint8_t READ_W1NV  = B00111100;   
 const static uint8_t INC_W0  = B00000100;
 const static uint8_t INC_W1  = B00010100;
 const static uint8_t DEC_W0  = B00001000;
@@ -55,6 +59,7 @@ void saveW1Pos(int num);
 void  restoreW0Pos(int num);
 void  restoreW1Pos(int num);
 void  mute(boolean mute);
+void MCP4261::wiperOn(boolean w0_on, boolean w1_on);
 
 uint16_t readTcon();
 void writeTcon(uint16_t tcon);

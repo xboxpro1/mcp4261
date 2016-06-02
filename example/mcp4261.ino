@@ -15,6 +15,8 @@ int incomingByte = 0;
 void setup(){
  Serial.begin(115200);
  
+ SPI.begin();
+ 
  poti.setW0Pos(10);
  poti.setW1Pos(15);
  help();

@@ -2,6 +2,14 @@
 
 
 
+MCP4261::MCP4261(int chipSelect){
+  cs = chipSelect;
+  pe = 99;
+  nv = 99;
+  pinMode(cs, OUTPUT); 
+  digitalWrite(cs, HIGH); 
+}
+
 MCP4261::MCP4261(int chipSelect, int potE, int proNV){
   cs = chipSelect;
   pe = potE;
@@ -18,24 +26,32 @@ MCP4261::MCP4261(int chipSelect, int potE, int proNV){
 
 void MCP4261::write(byte cmd_byte, byte data_byte)
 {
-  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+  #ifdef SPI_HAS_TRANSACTION
+    SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+  #endif
   digitalWrite(cs, LOW);  
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(data_byte);
   delay(5);
   digitalWrite(cs, HIGH);
-  SPI.endTransaction();
+  #ifdef SPI_HAS_TRANSACTION
+    SPI.endTransaction();
+  #endif
   bool result = ~low_byte;
 }
 
 uint16_t MCP4261::read(byte cmd_byte)
 {
-  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+  #ifdef SPI_HAS_TRANSACTION
+    SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+  #endif
   digitalWrite(cs, LOW); 
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(0xFF);
   digitalWrite(cs, HIGH);
-  SPI.endTransaction();
+  #ifdef SPI_HAS_TRANSACTION
+    SPI.endTransaction();
+  #endif
   return byte2uint16(high_byte, low_byte);
 }
 
@@ -112,13 +128,13 @@ void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
 byte w0on;
 byte won;
 if(w0_on)
-    w0on = B0111;
+    w0on = 0x07;
 else
-    w0on = B0000;
+    w0on = 0x00;
 if(W1_on)
-    won = w0on + B01110000;
+    won = w0on + 0x70;
 else
-    won = w0on + B0000000;
+    won = w0on + 0x00;
 
 writeTcon(won);
 }

@@ -104,11 +104,15 @@ void MCP4261::setW1NVPos(uint16_t pos){
 }
 
 void MCP4261::potEnable(int enp){
-      digitalWrite(pe, enp);
+      if(pe != 99){
+        digitalWrite(pe, enp);
+      }
 }
 
 void MCP4261::nvProtect(int nvp){
-      digitalWrite(nv, nvp);
+      if(nv != 99){
+        digitalWrite(nv, nvp);
+      }
 }
 
 

@@ -36,6 +36,7 @@ class MCP4261{
 
 public:
 
+MCP4261(int chipSelect);
 MCP4261(int cs, int pe, int nv);
 int  getW0Pos();
 int  getW0NVPos();

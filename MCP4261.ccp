@@ -129,17 +129,13 @@ uint16_t MCP4261::readStatus(){
 }
 
 void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
-byte w0on;
-byte won;
-if(w0_on)
-    w0on = 0x07;
-else
-    w0on = 0x00;
-if(W1_on)
-    won = w0on + 0x70;
-else
-    won = w0on + 0x00;
-
-writeTcon(won);
+  byte won = 0x00;
+  if(w1_on){
+    won = 0x70;
+    }
+  if(W0_on){
+    won = won + 0x07;
+    }
+  writeTcon(won);
 }
 

@@ -1,11 +1,8 @@
-#ifndef MCP4141_H
-#define MCP4141_H
+#ifndef MCP4261_H
+#define MCP4261_H
 
 #include "Arduino.h"
 #include "SPI.h" 
-
-
-
 
 const static uint8_t WRITE_W0  = B00000000;
 const static uint8_t WRITE_W1  = B00010000;
@@ -46,10 +43,10 @@ void setW0Pos(uint16_t pos);
 void setW0NVPos(uint16_t pos);
 void setW1Pos(uint16_t pos);
 void setW1NVPos(uint16_t pos);
-void potEnable(int enp);
-void nvProtect(int nvp);
+void enable();
+void disable();
+void protectNV(int nvp);
 void wiperOn(boolean w0_on, boolean w1_on);
-
 uint16_t readStatus();
 uint16_t readTcon();
 void writeTcon(uint16_t tcon);

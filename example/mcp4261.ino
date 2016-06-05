@@ -10,15 +10,17 @@ const int wp_poti = 11;                                  // WP Poti
 
 MCP4261 poti = MCP4261(cs_poti, sd_poti, wp_poti);
 
-int incomingByte = 0; 
+String dataIN;
+String crIN;
+short CR = 10;
 
 void setup(){
  Serial.begin(115200);
  
- SPI.begin();
- 
  poti.setW0Pos(10);
  poti.setW1Pos(15);
+ poti.wiperOn(true, true);
+ poti.enable();
  help();
 
 }
@@ -47,83 +49,84 @@ void loop()
 {
 
  if (Serial.available() > 0) {
-   incomingByte = Serial.read();
+   dataIN = Serial.readStringUntil(CR);
+   crIN = Serial.readString();
 
-   if(incomingByte == 'g'){
+   if(dataIN == 'g'){
         Serial.print("Left: ");
         Serial.print(poti.getW0Pos());
         Serial.print("  -  Rigth: ");        
         Serial.println(poti.getW1Pos());     
    }
 
-   if(incomingByte == '0'){
+   if(dataIN == '0'){
       poti.setW0Pos(0);
       poti.setW1Pos(5);
    }
 
-   if(incomingByte == '1'){
+   if(dataIN == '1'){
       poti.setW0Pos(25);
       poti.setW1Pos(30);
    }
 
-   if(incomingByte == '2'){
+   if(dataIN == '2'){
       poti.setW0Pos(100);
       poti.setW1Pos(105);
    }
 
-   if(incomingByte == '3'){
+   if(dataIN == '3'){
       poti.setW0Pos(150);
       poti.setW1Pos(155);
    }
 
-   if(incomingByte == '4'){
+   if(dataIN == '4'){
       poti.setW0Pos(200);
       poti.setW1Pos(205);
    }
 
 
-   if(incomingByte == '5'){
+   if(dataIN == '5'){
       poti.setW0Pos(250);
       poti.setW1Pos(255);
    }
 
-   if(incomingByte == 't'){
+   if(dataIN == 't'){
       uint16_t tcon = poti.readTcon();
        Serial.print("TCON: ");        
        Serial.println(tcon,BIN);     
    }
    
-   if(incomingByte == 's'){
+   if(dataIN == 's'){
       uint16_t stat = poti.readStatus();
        Serial.print("Status: ");        
        Serial.println(stat,BIN);     
    }
    
-   if(incomingByte == 'e'){
+   if(dataIN == 'e'){
     poti.enable();
    }
    
-   if(incomingByte == 'x'){
+   if(dataIN == 'x'){
     poti.disable();
    }
    
-   if(incomingByte == 'a'){
+   if(dataIN == 'a'){
     poti.wiperOn(true, false);
    }
    
-   if(incomingByte == 'b'){
+   if(dataIN == 'b'){
     poti.wiperOn(false, true);
    }
    
-   if(incomingByte == 'c'){
+   if(dataIN == 'c'){
     poti.wiperOn(true, true);
    }
    
-   if(incomingByte == 'd'){
+   if(dataIN == 'd'){
     poti.wiperOn(false, false);
    }
    
-   if(incomingByte == 'h'){
+   if(dataIN == 'h'){
     help();
    }
    

@@ -1,4 +1,4 @@
-#include <MCP4261.h>
+#include <mcp4261.h>
 
 
 MCP4261::MCP4261(int chipSelect){

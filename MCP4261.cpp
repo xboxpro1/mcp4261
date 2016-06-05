@@ -7,6 +7,7 @@ MCP4261::MCP4261(int chipSelect){
   nv = 99;
   pinMode(cs, OUTPUT); 
   digitalWrite(cs, HIGH); 
+  SPI.begin();
 }
 MCP4261::MCP4261(int chipSelect, int potE, int proNV){
   cs = chipSelect;
@@ -18,6 +19,7 @@ MCP4261::MCP4261(int chipSelect, int potE, int proNV){
   digitalWrite(pe, HIGH);
   pinMode(nv, OUTPUT); 
   digitalWrite(nv, HIGH);
+  SPI.begin();
 }
 void MCP4261::write(byte cmd_byte, byte data_byte)
 {
@@ -27,7 +29,6 @@ void MCP4261::write(byte cmd_byte, byte data_byte)
   digitalWrite(cs, LOW);  
   byte high_byte = SPI.transfer(cmd_byte);
   byte low_byte  = SPI.transfer(data_byte);
-  delay(5);
   digitalWrite(cs, HIGH);
   #ifdef SPI_HAS_TRANSACTION
     SPI.endTransaction();
@@ -73,12 +74,14 @@ void MCP4261::setW0Pos(uint16_t pos){
 }
 void MCP4261::setW0NVPos(uint16_t pos){
       write(WRITE_W0NV, pos);
+      delay(5);
 }
 void MCP4261::setW1Pos(uint16_t pos){
       write(WRITE_W1, pos);
 }
 void MCP4261::setW1NVPos(uint16_t pos){
       write(WRITE_W1NV, pos);
+      delay(5);
 }
 void MCP4261::enable(){
       if(pe != 99){

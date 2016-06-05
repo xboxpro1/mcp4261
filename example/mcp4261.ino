@@ -1,5 +1,6 @@
-#include "SPI.h" 
-#include "MCP4261.h" 
+
+#include <SPI.h>
+#include "mcp4261.h" 
 
 #define on LOW
 #define off HIGH

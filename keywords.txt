@@ -23,7 +23,7 @@ setW1Pos	KEYWORD2
 setW1NVPos	KEYWORD2
 enable		KEYWORD2
 disable		KEYWORD2
-protectNV   KEYWORD2
+protectNV     KEYWORD2
 readTcon	KEYWORD2
 writeTcon	KEYWORD2
 readStatus	KEYWORD2

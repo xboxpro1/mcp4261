@@ -100,11 +100,11 @@ void loop()
    }
    
    if(incomingByte == 'e'){
-    poti.potEnable(on);
+    poti.enable();
    }
    
    if(incomingByte == 'x'){
-    poti.potEnable(off);
+    poti.disable();
    }
    
    if(incomingByte == 'a'){

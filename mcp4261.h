@@ -1,8 +1,8 @@
-#ifndef MCP4261_H
-#define MCP4261_H
+#ifndef _MCP4261_H_
+#define _MCP4261_H_
 
-#include <Arduino.h>
-#include <SPI.h>
+#include "Arduino.h"
+#include "SPI.h"
 
 const static uint8_t WRITE_W0  = B00000000;
 const static uint8_t WRITE_W1  = B00010000;

@@ -100,7 +100,7 @@ uint16_t MCP4261::readStatus(){
   return  read(STATUS_READ);
 }
 void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
-  byte won = 0x00;
+  uint16_t won = 0x00;
   if(w1_on){
     won = 0x70;
     }

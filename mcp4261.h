@@ -46,7 +46,7 @@ void setW1NVPos(uint16_t pos);
 void enable();
 void disable();
 void protectNV(int nvp);
-void wiperOn(boolean w0_on, boolean w1_on);
+void wiperOn(bool w0_on, bool w1_on);
 uint16_t readStatus();
 uint16_t readTcon();
 void writeTcon(uint16_t tcon);

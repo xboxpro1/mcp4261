@@ -107,7 +107,7 @@ void MCP4261::writeTcon(uint16_t tcon){
 uint16_t MCP4261::readStatus(){
   return  read(STATUS_READ);
 }
-void MCP4261::wiperOn(boolean w0_on, boolean w1_on){
+void MCP4261::wiperOn(bool w0_on, bool w1_on){
   uint16_t won = 0x00;
   if(w1_on){
     won = 0x70;

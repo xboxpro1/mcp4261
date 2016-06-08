@@ -56,9 +56,9 @@ private:
 void write(byte cmd_byte, byte data_byte);
 uint16_t read(byte cmd_byte);
 uint16_t byte2uint16(byte high_byte, byte low_byte);
-int cs; 
-int pe;
-int nv;
+int _cs; 
+int _pe;
+int _nv;
 
 };
 

@@ -39,6 +39,8 @@ void help(){
     Serial.println("t -> read TCON-Register");
     Serial.println("s -> read Setup-Register");
     Serial.println("e -> enable Poti");
+    Serial.println("p -> protect Non Volatile");
+    Serial.println("n -> non protect Non Volatile");
     Serial.println("x -> disable Poti");
     Serial.println("a -> W0-ON W1-OFF");
     Serial.println("b -> W0-OFF W1-ON");
@@ -106,6 +108,14 @@ void loop()
    
    if(dataIN == 'e'){
     poti.potiOn();
+   }
+   
+   if(dataIN == 'p'){
+    digitalWrite(wp_poti, LOW);
+   }
+
+   if(dataIN == 'n'){
+    digitalWrite(wp_poti, HIGH);
    }
    
    if(dataIN == 'x'){

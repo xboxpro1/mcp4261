@@ -21,7 +21,7 @@ void setup(){
  poti.setW0Pos(10);
  poti.setW1Pos(15);
  poti.wiperOn(true, true);
- poti.enable();
+ poti.on();
  help();
 
 }
@@ -56,7 +56,7 @@ void loop()
    if(dataIN == 'g'){
         Serial.print("Left: ");
         Serial.print(poti.getW0Pos());
-        Serial.print("  -  Rigth: ");        
+        Serial.print("  -  Right: ");        
         Serial.println(poti.getW1Pos());     
    }
 
@@ -92,23 +92,23 @@ void loop()
    }
 
    if(dataIN == 't'){
-      uint16_t tcon = poti.readTcon();
+      int tcon = poti.readTcon();
        Serial.print("TCON: ");        
        Serial.println(tcon,BIN);     
    }
    
    if(dataIN == 's'){
-      uint16_t stat = poti.readStatus();
+      int stat = poti.readStatus();
        Serial.print("Status: ");        
        Serial.println(stat,BIN);     
    }
    
    if(dataIN == 'e'){
-    poti.enable();
+    poti.on();
    }
    
    if(dataIN == 'x'){
-    poti.disable();
+    poti.off();
    }
    
    if(dataIN == 'a'){

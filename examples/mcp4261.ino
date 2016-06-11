@@ -21,7 +21,7 @@ void setup(){
  poti.setW0Pos(10);
  poti.setW1Pos(15);
  poti.wiperOn(true, true);
- poti.on();
+ poti.potiOn();
  help();
 
 }
@@ -104,11 +104,11 @@ void loop()
    }
    
    if(dataIN == 'e'){
-    poti.on();
+    poti.potiOn();
    }
    
    if(dataIN == 'x'){
-    poti.off();
+    poti.potiOff();
    }
    
    if(dataIN == 'a'){

@@ -114,7 +114,7 @@ void MCP4261::protectNV(int nvp){
       }
 }
 
-uint16_t MCP4261::readTcon(){
+int MCP4261::readTcon(){
   int con =   0x01FF &  read(TCON_READ);
   return con;
 }
@@ -123,7 +123,7 @@ void MCP4261::writeTcon(uint16_t tcon){
     write(TCON_WRITE,tcon);
 }
 
-uint16_t MCP4261::readStatus(){
+int MCP4261::readStatus(){
   int sta =   0x01FF &   read(STATUS_READ);
   return sta;
 }

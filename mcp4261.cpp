@@ -96,13 +96,13 @@ void MCP4261::setW1NVPos(uint16_t pos){
       delay(5);
 }
 
-void MCP4261::on(){
+void MCP4261::potiOn(){
       if(_pe != 99){
         digitalWrite(_pe, LOW);
       }
 }
 
-void MCP4261::off(){
+void MCP4261::potiOff(){
       if(_pe != 99){
         digitalWrite(_pe, HIGH);
       }

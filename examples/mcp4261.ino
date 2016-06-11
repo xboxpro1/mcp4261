@@ -21,6 +21,7 @@ void setup(){
  poti.setW0Pos(10);
  poti.setW1Pos(15);
  poti.wiperOn(true, true);
+ poti.protectWP(true);
  poti.potiOn();
  help();
 

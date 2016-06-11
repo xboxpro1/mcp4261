@@ -111,11 +111,11 @@ void loop()
    }
    
    if(dataIN == 'p'){
-    digitalWrite(wp_poti, LOW);
+    poti.protectNV(on);
    }
 
    if(dataIN == 'n'){
-    digitalWrite(wp_poti, HIGH);
+    poti.protectNV(off);
    }
    
    if(dataIN == 'x'){

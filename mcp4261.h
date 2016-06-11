@@ -20,7 +20,7 @@ const static uint8_t STATUS_READ  =  B01011100;
 
 
  const static uint8_t WP_DIS = B11110100;
- const static uint8_t WP_EN =  B11111000;
+ const static uint8_t WP_EN =  B11110000;
 
                                
  //EEprom write adresses

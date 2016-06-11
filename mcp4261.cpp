@@ -138,3 +138,12 @@ void MCP4261::wiperOn(uint8_t on0, uint8_t on1){
     }
   writeTcon(won);
 }
+
+void MCP4261::protectWP(uint8_t wp){
+  if(wp == 1){
+    write(WP_EN, 0);
+    }
+  else {
+    write(WP_DIS, 0);
+  }
+}

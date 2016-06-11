@@ -97,19 +97,19 @@ void MCP4261::setW1NVPos(uint16_t pos){
 }
 
 void MCP4261::enable(){
-      if(pe != 99){
+      if(_pe != 99){
         digitalWrite(_pe, LOW);
       }
 }
 
 void MCP4261::disable(){
-      if(pe != 99){
+      if(_pe != 99){
         digitalWrite(_pe, HIGH);
       }
 }
 
 void MCP4261::protectNV(int nvp){
-      if(nv != 99){
+      if(_nv != 99){
         digitalWrite(_nv, nvp);
       }
 }
@@ -126,12 +126,14 @@ uint16_t MCP4261::readStatus(){
   return  read(STATUS_READ);
 }
 
-void MCP4261::wiperOn(int w0_on, int w1_on){
+void MCP4261::wiperOn(bool w0_on, bool w1_on){
+  _w1 = w1_on;
+  _w0 = w0_0n;
   uint16_t won = 0x00;
-  if(w1_on == 1){
+  if(_w1 == true){
     won = 0x70;
     }
-  if(W0_on == 1){
+  if(_W0 == true){
     won = won + 0x07;
     }
   writeTcon(won);

@@ -50,6 +50,7 @@ void wiperOn(uint8_t on0, uint8_t on1);
 int readStatus();
 int readTcon();
 void writeTcon(uint16_t tcon);
+void protectWP(uint8_t wp);
 
 private:
 

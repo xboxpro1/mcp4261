@@ -43,14 +43,13 @@ void setW0Pos(uint16_t pos);
 void setW0NVPos(uint16_t pos);
 void setW1Pos(uint16_t pos);
 void setW1NVPos(uint16_t pos);
-void potiOn();
-void potiOff();
+void pOn();
+void pOff();
 void protectNV(int nvp);
 void wiperOn(uint8_t on0, uint8_t on1);
 int readStatus();
 int readTcon();
 void writeTcon(uint16_t tcon);
-void protectWP(uint8_t wp);
 
 private:
 

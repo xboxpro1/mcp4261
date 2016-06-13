@@ -19,16 +19,6 @@ const static uint8_t TCON_WRITE  = B01000000;
 const static uint8_t STATUS_READ  =  B01011100;
 
 
- const static uint8_t WP_DIS = B11110100;
- const static uint8_t WP_EN =  B11110000;
-
-                               
- //EEprom write adresses
- const static uint8_t EEPROM_W[] = {B01100000,B01110000,B10000000,B10010000,B10100000,B10110000,B11000000,B11010000,B11100000,B11110000};
- //EEprom read adresses
- const static uint8_t EEPROM_R[] = {B01101111,B01111111,B10001111,B10011111,B10101111,B10111111,B11001111,B11011111,B11101111,B11111111};
-
-
 class MCP4261{
 
 public:
@@ -45,7 +35,8 @@ void setW1Pos(uint16_t pos);
 void setW1NVPos(uint16_t pos);
 void pOn();
 void pOff();
-void protectNV(int nvp);
+void protectOn();
+void protectOff();
 void wiperOn(uint8_t on0, uint8_t on1);
 int readStatus();
 int readTcon();

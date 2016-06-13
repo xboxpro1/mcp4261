@@ -96,13 +96,13 @@ void MCP4261::setW1NVPos(uint16_t pos){
       delay(5);
 }
 
-void MCP4261::potiOn(){
+void MCP4261::pOn(){
       if(_pe != 99){
         digitalWrite(_pe, LOW);
       }
 }
 
-void MCP4261::potiOff(){
+void MCP4261::pOff(){
       if(_pe != 99){
         digitalWrite(_pe, HIGH);
       }
@@ -139,11 +139,4 @@ void MCP4261::wiperOn(uint8_t on0, uint8_t on1){
   writeTcon(won);
 }
 
-void MCP4261::protectWP(uint8_t wp){
-  if(wp == 1){
-    write(WP_EN, 0);
-    }
-  else {
-    write(WP_DIS, 0);
-  }
 }

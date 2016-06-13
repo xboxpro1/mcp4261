@@ -21,9 +21,10 @@ setW0Pos  KEYWORD2
 setW0NVPos  KEYWORD2
 setW1Pos  KEYWORD2
 setW1NVPos  KEYWORD2
-enable  KEYWORD2
-disable KEYWORD2
-protectNV KEYWORD2
+pOn KEYWORD2
+pOff  KEYWORD2
+protectOn KEYWORD2
+protectOff  KEYWORD2
 readTcon  KEYWORD2
 writeTcon KEYWORD2
 readStatus  KEYWORD2

@@ -2,9 +2,6 @@
 #include <SPI.h>
 #include "mcp4261.h" 
 
-#define on LOW
-#define off HIGH
-
 const int sd_poti = 9;                                   // SHDN Poti
 const int cs_poti = 10;                                  // CS Poti
 const int wp_poti = 11;                                  // WP Poti

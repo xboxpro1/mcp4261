@@ -108,9 +108,15 @@ void MCP4261::pOff(){
       }
 }
 
-void MCP4261::protectNV(int nvp){
+void MCP4261::protectOn(){
       if(_nv != 99){
-        digitalWrite(_nv, nvp);
+        digitalWrite(_nv, LOW);
+      }
+}
+
+void MCP4261::protectOff(){
+      if(_nv != 99){
+        digitalWrite(_pe, HIGH);
       }
 }
 

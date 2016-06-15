@@ -4,17 +4,22 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-const static uint8_t WRITE_W0  = 0x00;
-const static uint8_t WRITE_W1  = 0x10;
-const static uint8_t WRITE_W0NV  = 0x20;
-const static uint8_t WRITE_W1NV  = 0x30;
-const static uint8_t TCON_WRITE  = 0x40;
+const static uint8_t WRITE_W0 = 0x00;
 const static uint8_t READ_W0  = 0x0C;
-const static uint8_t READ_W1  = 0x1C; 
+
+const static uint8_t WRITE_W1 = 0x10;
+const static uint8_t READ_W1  = 0x1C;
+
+const static uint8_t WRITE_W0NV = 0x20;
 const static uint8_t READ_W0NV  = 0x2C;
-const static uint8_t READ_W1NV  = 0x3C;   
-const static uint8_t TCON_READ  =  0x4C;
-const static uint8_t STATUS_READ  =  0x5C;
+
+const static uint8_t WRITE_W1NV = 0x30;
+const static uint8_t READ_W1NV  = 0x3C;
+
+const static uint8_t TCON_WRITE = 0x40;
+const static uint8_t TCON_READ  = 0x4C;
+
+const static uint8_t STATUS_READ = 0x5C;
 
 class MCP4261{
 

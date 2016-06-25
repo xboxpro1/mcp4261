@@ -128,7 +128,7 @@ void MCP4261::wiperOn(uint8_t on0, uint8_t on1){
     won = 0x70;
     }
   if(on0 == 1){
-    won = won + 0x07;
+    won += 0x07;
     }
   writeTcon(won);
 }
